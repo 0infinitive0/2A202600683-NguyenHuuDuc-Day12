@@ -107,10 +107,10 @@ python app.py
 
 | Feature | Basic | Advanced | Tại sao quan trọng? |
 |---------|-------|----------|---------------------|
-| Config | Hardcode | Env vars | ... |
-| Health check |  |  | ... |
-| Logging | print() | JSON | ... |
-| Shutdown | Đột ngột | Graceful | ... |
+| Config | Hardcode | Env vars | Bảo mật thông tin nhạy cảm, dễ dàng thay đổi cấu hình mà không cần sửa code. |
+| Health check | Không có | Có endpoints | Giúp hệ thống monitor biết service còn sống không và có sẵn sàng nhận request chưa. |
+| Logging | print() | JSON logging | Dễ dàng parse, tìm kiếm và phân tích log bằng các hệ thống quản lý log (ELK, Cloud Logging). |
+| Shutdown | Đột ngột | Graceful | Xử lý nốt request đang chạy, đóng kết nối an toàn tránh lỗi cho người dùng và mất dữ liệu. |
 
 ###  Checkpoint 1
 
@@ -151,6 +151,9 @@ cd ../../02-docker/develop
 ###  Exercise 2.2: Build và run
 
 ```bash
+# Quay lại thư mục gốc của project
+cd ../../
+
 # Build image
 docker build -f 02-docker/develop/Dockerfile -t my-agent:develop .
 
